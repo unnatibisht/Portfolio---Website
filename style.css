@@ -1,0 +1,699 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLE CONFIGURATION
+   ========================================================================== */
+:root {
+  /* Dark Tech UI Color Palette */
+  --bg-primary: #0b0f19;
+  --bg-secondary: #131c2e;
+  --bg-tertiary: #1a263e;
+  --accent-blue: #3b82f6;
+  --accent-glow: #60a5fa;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-color: #243556;
+  --card-radius: 12px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  /* Typography: Inter Font Hierarchy */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography: Heading Accent Styling */
+h1, h2, h3, h4, h5, h6, .nav-logo {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-glow);
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  color: var(--text-main);
+}
+
+.highlight {
+  color: var(--accent-glow);
+}
+
+/* ==========================================================================
+   2. FIXED NAVIGATION BAR
+   ========================================================================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 4rem;
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+.nav-links a.nav-cta {
+  background: var(--accent-blue);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+}
+
+.nav-links a.nav-cta:hover {
+  background: var(--accent-glow);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================================================
+   3. HERO INTRO SECTION (PERFECTLY CENTERED CONFIGURE)
+   ========================================================================== */
+header {
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+  background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-text-block {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--accent-glow);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.status-badge i {
+  font-size: 0.75rem;
+}
+
+.hero-name {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-role {
+  font-size: 2.25rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  min-height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.btn-primary, .btn-outline {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary {
+  background: var(--accent-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-glow);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-muted);
+}
+
+.hero-stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 3rem;
+  width: 100%;
+  max-width: 750px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 2rem;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.stat-item p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. ABOUT ME PROFILE SECTION
+   ========================================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-main-story h2 {
+  margin-bottom: 1.5rem;
+}
+
+.about-lead {
+  font-size: 1.25rem;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.about-main-story p {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.about-side-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.strategy-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  display: flex;
+  gap: 1.25rem;
+}
+
+.strategy-icon {
+  font-size: 1.5rem;
+  color: var(--accent-glow);
+  margin-top: 0.25rem;
+}
+
+.strategy-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.strategy-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. CAPABILITIES GRID MATRIX
+   ========================================================================== */
+.skills-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.skills-column {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 2.25rem;
+  border-radius: var(--card-radius);
+}
+
+.skills-column h3 {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-main);
+}
+
+.skills-column h3 i {
+  color: var(--accent-glow);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   6. CASE STUDIES GRID (PROJECTS)
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.project-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #000;
+}
+
+.project-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.project-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.project-meta span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--bg-tertiary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  color: var(--accent-glow);
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-content p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+}
+
+.project-link-btn {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.project-link-btn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent-blue);
+  color: var(--accent-glow);
+}
+
+/* ==========================================================================
+   7. BI INTERACTIVE DASHBOARDS
+   ========================================================================== */
+.dashboards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.dashboard-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.dashboard-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.dashboard-preview-window {
+  width: 100%;
+  height: 300px;
+  background: #050811;
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.dashboard-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.dashboard-card:hover .dashboard-img {
+  transform: scale(1.02);
+}
+
+.dashboard-details {
+  padding: 2rem;
+}
+
+.db-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-glow);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-details h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-details p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   8. INSIGHTS DRAWN SECTION
+   ========================================================================== */
+.insights-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.insight-item-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: var(--card-radius);
+  display: flex;
+  flex-direction: column;
+}
+
+.insight-badge-row {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.insight-badge-row i {
+  color: #6e7681;
+}
+
+.insight-item-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.insight-item-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.insight-action-link {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-glow);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition-smooth);
+}
+
+.insight-action-link:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   9. UNIFIED CONTACT HUB & FOOTER
+   ========================================================================== */
+.contact-card-box {
+  background: radial-gradient(circle at top left, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 4rem;
+  text-align: center;
+}
+
+.contact-card-box h2 {
+  margin-bottom: 0.75rem;
+}
+
+.contact-card-box p {
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.contact-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+}
+
+.connect-node {
+  background: rgba(11, 15, 25, 0.5);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.connect-node:hover {
+  border-color: var(--accent-blue);
+  background: rgba(11, 15, 25, 0.8);
+}
+
+.connect-icon-pocket {
+  width: 44px;
+  height: 44px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--accent-glow);
+}
+
+.connect-text span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.15rem;
+}
+
+.connect-text h4 {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.footer-signoff {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   10. RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .projects-grid, .skills-matrix-grid, .insights-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-links-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .hero-name {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1.25rem 2rem;
+  }
+  .nav-links {
+    display: none; /* Collapses menu links on small viewports */
+  }
+  .hero-name {
+    font-size: 2.75rem;
+  }
+  .hero-role {
+    font-size: 1.75rem;
+  }
+  .hero-stats-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about-grid, .dashboards-grid, .projects-grid, .skills-matrix-grid, .insights-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  .contact-card-box {
+    padding: 2.5rem 1.5rem;
+  }
+}
